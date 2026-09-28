@@ -30,10 +30,12 @@
 5. Выполнить **Restart & Run All**.
 6. После успешного выполнения скачать `/kaggle/working/answer.csv`.
 
+Если датасет доступен по пути `/kaggle/input/datasets/yuriymagus/avito-nlp-interns`, менять конфигурацию не нужно.
 
 ### Вариант 2: локальный запуск
 
-Распаковать исходный архив в папку `data` в корне репозитория. Ожидаемая структура:
+Распаковать исходный архив в папку `data` в корне репозитория. Ожидаемая
+структура:
 
 ```text
 avito-solution/
@@ -49,14 +51,31 @@ avito-solution/
     └── benchmark_items.parquet
 ```
 
-Затем из корня репозитория:
+Для локального запуска рекомендуется Python 3.12 и отдельное виртуальное окружение. Создать его из корня репозитория:
+
+Linux и macOS:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+Windows (cmd):
+
+```cmd
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+Установить зависимости и запустить Jupyter Lab:
 
 ```bash
 python -m pip install -r requirements.txt
+python -m pip install pandas pyarrow jupyterlab
 jupyter lab
 ```
 
-Открыть `01_final_solution.ipynb` и выполнить **Restart Kernel and Run All**. При такой структуре менять пути не требуется. Итоговый файл будет сохранён как `answer.csv` в корне репозитория.
+Открыть `01_final_solution.ipynb` и выполнить **Restart Kernel and Run All**. Ноутбук следует запускать в ядре Python из активированного окружения `.venv`. При такой структуре менять пути не требуется. Итоговый файл будет сохранён как `answer.csv` в корне репозитория. После завершения работы окружение можно деактивировать командой `deactivate`.
 
 Если данные или результаты должны находиться в других папках, можно изменить пути в первой конфигурационной ячейке либо задать абсолютные пути через переменные окружения.
 
